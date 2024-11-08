@@ -5,10 +5,10 @@ import QuizCore from '../core/QuizCore';
 // Hint: Take advantage of the QuizQuestion interface
 
 interface QuizState {
-  questions: QuizQuestion[]
-  currentQuestionIndex: number
+  //questions: QuizQuestion[]
+  //currentQuestionIndex: number
   selectedAnswer: string | null
-  score: number
+  //score: number
 }
 
 const Quiz: React.FC = () => {
@@ -21,12 +21,12 @@ const Quiz: React.FC = () => {
   //     correctAnswer: 'Paris',
   //   },
   // ];
-  // const [state, setState] = useState<QuizState>({
+  const [state, setState] = useState<QuizState>({
   //   questions: initialQuestions,
   //   currentQuestionIndex: 0,  // Initialize the current question index.
-  //   selectedAnswer: null,  // Initialize the selected answer.
-  //   score: 0,  // Initialize the score.
-  // });
+  selectedAnswer: null,  // Initialize the selected answer.
+  //  score: 0,  // Initialize the score.
+  });
 
   let core : QuizCore = new QuizCore();
 
@@ -42,6 +42,7 @@ const Quiz: React.FC = () => {
 
   //const { questions, currentQuestionIndex, selectedAnswer, score } = state;
   //const currentQuestion = questions[currentQuestionIndex];
+  const {selectedAnswer} = state;
   const currentQuestion = core.getCurrentQuestion();
 
   if (!currentQuestion) {
